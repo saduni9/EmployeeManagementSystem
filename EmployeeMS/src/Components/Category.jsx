@@ -28,7 +28,6 @@ const Category = () => {
       <Link to="/dashboard/add_category" className="btn btn-success ">
         Add Category
       </Link>
-
       <div className="mt-3">
         <table className="table">
           <thead>
