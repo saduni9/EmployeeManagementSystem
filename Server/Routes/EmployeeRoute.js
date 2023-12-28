@@ -1,6 +1,6 @@
 import express, { response } from "express";
 import con from "../utils/db.js";
-import jwt from "jsonwebtoken";
+import Jwt from "jsonwebtoken";
 import bcrypt, { hash } from "bcrypt";
 
 const router = express.Router();
@@ -15,9 +15,9 @@ router.post("/employee_login", (req, res) => {
           return res.json({ loginStatus: false, Error: "Wrong Password" });
         if (response) {
           const email = result[0].email;
-          const token = jwt.sign(
-            { role: "employee", email: email },
-            "employee_secret_key",
+          const token = Jwt.sign(
+            { role: "employee", email: email , id: result[0].id},
+            "jwt_secret_key",
             { expiresIn: "1d" }
           );
           res.cookie("token", token);

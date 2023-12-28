@@ -13,7 +13,8 @@ const Dashboard = () => {
     axios.get('http://localhost:3000/auth/logout')
     .then(result => {
       if(result.data.Status){
-          anvigate('/adminlogin')
+        localStorage.removeItem("valid")
+          anvigate('/')
       }
     })
   }

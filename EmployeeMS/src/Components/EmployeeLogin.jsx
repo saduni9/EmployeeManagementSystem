@@ -18,6 +18,7 @@ const EmployeeLogin = () => {
       .post("http://localhost:3000/employee/employee_login", values)
       .then((result) => {
         if (result.data.loginStatus) {
+          localStorage.setItem("valid", true)
           navigate("/employee_details/" + result.data.id);
         } else {
           setError(result.data.Error);
