@@ -24,7 +24,8 @@ const EmployeeDetails = () => {
       .get("http://localhost:3000/employee/logout")
       .then((result) => {
         if (result.data.Status) {
-          navigate("/start");
+          localStorage.removeItem("valid")
+          navigate("/");
         }
       })
       .catch((err) => console.log(err));
